@@ -1,0 +1,62 @@
+a{
+	outline: none;
+	img{
+		border: none;
+	}
+}
+
+.content{
+	@include make-row;
+}
+
+.navegacao-fixa{
+	position: fixed;
+	top:0;
+	z-index:999;
+	background: rgba(202, 48, 52, 0.9) !important;
+}
+.navegacao-fixa .navbar{
+	background: transparent !important;
+}
+
+.container{
+	.heading,
+	.widget > .widget__title{
+		margin: 0 0 30px;
+		font: bold 18px $font_main;
+		color: $heading_color;
+		position: relative;
+		line-height: 30px;
+		text-indent: 14px;
+		> span{
+			display: inline-block;
+			width: 6px;
+			height: 30px;
+			background: $heading_tarja_color;
+			position: absolute;
+			top: 0;
+			left: 15; //pq ele fica flutuante, preciso comer 15px para alinhar com o texto
+		}
+	}
+	.heading{
+		@include make-md-column(12);
+	}
+	.widget > .widget__title{
+		> span{
+			left:0;
+		}
+	}
+}
+
+//Crio classe para o sprite
+.sprite_servicos{
+	//'..' volta para a raiz e acho minha imagem
+	background-image: url('../images/sprite-servicos.png');
+	background-repeat: no-repeat; //não quero que repita a imagem no fundo
+}
+
+.sprite_redes_sociais{
+	//'..' volta para a raiz e acho minha imagem
+	background-image: url('../images/sprite-redes-sociais.png');
+	background-repeat: no-repeat; //não quero que repita a imagem no fundo
+}

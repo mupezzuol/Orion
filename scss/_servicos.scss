@@ -1,0 +1,89 @@
+#servicos{
+	> #servicos__itens{
+		> .servicos__item{
+			@include make-xs-column(12);
+			@include make-sm-column(6);
+			@include make-md-column(3);
+			
+			cursor: pointer; //Cursor de mãozinha
+			min-height: 150px; //retangulo dessa largura
+			background-color: #ccc; 
+			background-clip: content-box; // tiro o padding, deixando os espaços
+			margin-bottom: 30px; //coloco 30px; de margim um do outro
+			
+			> a{ //Tudo que esta aqui é referente ao link onde esta minha imagem
+				display: block;
+				height: 150px;
+				width: 100%;
+				text-align: center;
+				position: relative;
+				> span.title{ //O TITULO TA NO SPAN NO HTML E EDITADO AQUI
+					color: #fff;
+					font: 26px $font_main; 
+					position: absolute;
+					width: 100%;
+					text-align: center;
+					bottom: 24px;  //top para ver a distancia do chao pra escrita
+					display: none;
+				}
+				&:hover > span.title{ //HOVER DO TITULO
+					display: block;
+				}
+				> span.icon{
+					display: inline-block;
+					position: relative;
+					transition: top 0.3s linear;
+					@extend .sprite_servicos; //Ele puxa config de uma classe, que pega função sprite
+
+					&.icon--config{ //COLOCAR AS IMAGENS
+						@include sprite-define(70px, 66px, -5px, -129px); //são altura, largura e X e Y do sprite
+						top: (150px-66px)/2; //Pego a altura do elemento - altura da imagem e divido por 2..
+					}
+						 
+					&.icon--camera{
+						@include sprite-define(70px, 52px, -5px, -5px);
+						top: (150px-52px)/2;
+					}
+
+					&.icon--image{
+						@include sprite-define(70px, 66px, -5px, -289px);
+						top: (150px-66px)/2;
+					}
+
+					&.icon--pc{
+						@include sprite-define(70px, 62px, -5px, -441px);
+						top: (150px-62px)/2;
+					}
+				}
+				&:hover > span.icon{//COLOCAR AS IMAGENS BRANCAS QUANDO PASSAR O MOUSE POR CIMA (HOVER)
+					top: 20px !important;
+					transition: top 0.3s linear;
+
+					&.icon--config{
+						@include sprite-define(70px, 66px, -5px, -209px); //são altura, largura e X e Y do sprite
+						
+					}
+					&.icon--camera{
+						@include sprite-define(70px, 52px, -5px, -67px);
+					
+					}
+					&.icon--image{
+						@include sprite-define(70px, 66px, -5px, -366px);					
+					}
+					&.icon--pc{
+						@include sprite-define(70px, 62px, -5px, -513px);				
+					}
+				}
+			}
+
+			//Passar o mouse mudará a cor e o objeto 
+			&:hover{
+				background-color: $heading_tarja_color; //puxo a cor q ta nessa variavel de cores
+			}
+			//Tempo de transição
+			&, &:hover{
+				transition: all 0.5s linear;
+			}
+		}
+	}
+}

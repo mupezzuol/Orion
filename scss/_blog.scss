@@ -1,0 +1,62 @@
+#blog{
+	#posts{
+		@include make-xs-column(10);
+		@include make-sm-column(7);
+		@include make-md-column(9);
+		> .posts__item{
+			margin-bottom: 30px;
+			> h2{
+				font: 300 26px $font_main;
+				color: #CC1F22;
+				margin: 15px 0 5px;
+			}
+			> p{
+				font: 300 16px $font_main;
+				text-align: justify;
+				color: #878787;
+				line-height: 1.5;
+				margin-bottom: 15px;
+			}
+			> a.read-more{
+				float: right; //Depois chamo o "CLEARFIX" do bootstrap para ele colocar espacamento
+				display: block; //Ele considera a largura para não ficar colado
+				width: 140px;
+				padding: 10px 0;
+				background-color: #CD1F23;
+				text-align: center;
+				font: bold 13px $font_main;
+				color: #FFFFFF;
+				border: 2px solid #CD1F23;
+				transition: all 0.5s linear;
+				&:hover{  //quando passar mouse muda o saiba mais
+					background: #fff;
+					color: #CD1F23;
+					text-decoration: none;
+					transition: all 0.5s linear;
+				}
+			}
+		}
+	}
+
+	#sidebar{
+		@include make-xs-column(2);
+		@include make-sm-column(5);
+		@include make-md-column(3);
+		> .widget{
+			> h3.widget__title{
+				font-size: 16px;
+				text-indent: 9px; 
+				margin-bottom: 13px; 
+				> span{
+					width: 4px;
+				}
+			}	
+			> .widget__body{
+			width: 100%;
+			min-height: 220px;
+			background-color: #636363;
+			margin-bottom: 30px;
+			}
+		}
+	}
+}
